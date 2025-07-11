@@ -17,32 +17,30 @@ func main() {
     var eachNum int
     var totalSum int
     var operation int
-    // var sum int
+
     fmt.Print("How many numbers do you want to work with?: ")
     fmt.Scanln(&totalVariables)
-    for i := totalVariables; i >= 1; i-- {
+
+    fmt.Print("Write the first number: ")
+	fmt.Scanln(&totalSum)
+    
+    for i := 2; i <= totalVariables; i++ {
+        fmt.Println("What do you want to do?\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division")
+        fmt.Scanln(&operation)
+
         fmt.Print("Write a number: ")
         fmt.Scanln(&eachNum)
         numbers = append(numbers, eachNum)
-        if i >= 2 {
-            fmt.Println("What do you want to do?")
-            fmt.Println("1. Addition")
-            fmt.Println("2. Subtraction")
-            fmt.Println("3. Multiplication")
-            fmt.Println("4. Division")
-            fmt.Scanln(&operation)
-        }
-    }
-    for i := range numbers {
+
         switch operation {
         case 1:
-            totalSum = totalSum + numbers[i]
+            totalSum = totalSum + eachNum
         case 2:
-            totalSum = totalSum - numbers[i]
+            totalSum = totalSum - eachNum
         case 3:
-            totalSum = totalSum * numbers[i]
+            totalSum = totalSum * eachNum
         case 4:
-            totalSum = totalSum / numbers[i]
+            totalSum = totalSum / eachNum
         }
     }
     fmt.Print("The total is: ", totalSum, "\n")
